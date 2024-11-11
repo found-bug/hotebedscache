@@ -11,13 +11,6 @@ namespace Hotebedscache.Api.Controllers
         public MasterController(IMasterServices masterServices)
         {
             _masterService = masterServices;
-        }
-        [HttpGet("City")]
-        public IActionResult GetCity()
-        { 
-            var cities = _masterService.GetCities();
-            if (cities != null) return Ok(cities);
-            else return NotFound();
         } 
     }
 }

@@ -20,7 +20,7 @@ builder.Services.AddDbContext<HotebedContext>(options => options.UseSqlServer(bu
 #region CONFIGURE Swagger
 builder.Services.AddSwaggerGen(c =>
 {
-    c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "Peer Fusion Service", Version = "V1" });
+    c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "Hotel Bed Cache Service", Version = "V1" });
     c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
         Description = @"JWT Authorization header using the Bearer scheme. \r\n\r\n 
@@ -117,9 +117,9 @@ app.UseSwaggerUI(c =>
 app.UseAuthorization();
 
 app.MapControllers();
-
-app.Run();
 JobScheduler.Start();
+app.Run();
+
 #pragma warning disable ASP0014 // Suggest using top level route registrations
 app.UseEndpoints(endpoints =>
 {

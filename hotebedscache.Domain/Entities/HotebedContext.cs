@@ -68,7 +68,17 @@ public partial class HotebedContext : DbContext
                 .HasMaxLength(50)
                 .IsUnicode(false);
         });
-          
+
+        modelBuilder.Entity<RefreshToken>(entity =>
+        {
+            entity.ToTable("RefreshToken");
+
+            entity.Property(e => e.Id).HasColumnName("ID");
+            entity.Property(e => e.Created).HasColumnType("datetime");
+            entity.Property(e => e.Expires).HasColumnType("datetime");
+            entity.Property(e => e.Revoked).HasColumnType("datetime");
+            entity.Property(e => e.UserId).HasColumnName("UserID");
+        });
 
         modelBuilder.Entity<UserVerification>(entity =>
         {

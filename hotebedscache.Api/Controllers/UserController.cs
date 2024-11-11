@@ -72,16 +72,7 @@ namespace Hotebedscache.Api.Controllers
                 var response = await _accountService.Register(request, secret);
 
                 if (response.Status)
-                {
-                    string EmailTemplate;
-                    using (var sr = new System.IO.StreamReader(Path.Combine(_configuration.GetValue<string>("AppUrl:Path"), "File", "email-verification.html")))
-                    {
-                        EmailTemplate = sr.ReadToEnd();
-                    }
-                    string EmailBody = EmailTemplate.Replace("{first-name}", request.FirstName).Replace("{verify-email-url}", HttpContext.Request.Scheme + "://" + HttpContext.Request.Host + @"/api/user/VerifyEmail/" + request.Email);
-                    EmailHelper sendMail = new EmailHelper(request.Email, _configuration.GetValue<string>("EmailSettings:EmailFrom").ToString(), "Verify Your Email", null, EmailBody, _configuration.GetValue<string>("EmailSettings:API_Key").ToString(), "Peer Fusion");
-                    await Task.Run(() => sendMail.SendGridEmail());
-                    response.Message = "Verification Link has been sent to your email address and OTP send to mobile no. Please check to activate your account.";
+                { 
                     return Ok(response);
                 }
                 return BadRequest(response);
