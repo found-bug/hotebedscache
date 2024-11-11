@@ -8,6 +8,7 @@ using Hotebedscache.Domain.Entities;
 using Hotebedscache.Service.Interfaces;
 using Hotebedscache.Service;
 using System.Text;
+using Hotebedscache.Api.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
@@ -118,7 +119,7 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
-
+JobScheduler.Start();
 #pragma warning disable ASP0014 // Suggest using top level route registrations
 app.UseEndpoints(endpoints =>
 {

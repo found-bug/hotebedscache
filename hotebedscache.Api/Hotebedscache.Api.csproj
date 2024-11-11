@@ -15,16 +15,13 @@
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.3" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="7.0.0" />
     <PackageReference Include="OpenAI" Version="1.6.0" />
+    <PackageReference Include="Quartz" Version="3.13.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Hotebedscache.Domain\Hotebedscache.Domain.csproj" />
     <ProjectReference Include="..\Hotebedscache.Service\Hotebedscache.Service.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="File\Logo\" />
   </ItemGroup>
 
 </Project>
