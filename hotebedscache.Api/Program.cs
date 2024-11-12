@@ -79,7 +79,8 @@ builder.Services.AddAuthentication(x =>
 #endregion
 
 builder.Services.AddScoped<IMasterServices, MasterService>();
-builder.Services.AddScoped<IAccountService, AccountService>(); 
+builder.Services.AddScoped<IAccountService, AccountService>();
+builder.Services.AddScoped<IHotelServices, HotelServices>(); 
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAllCors", builder =>
